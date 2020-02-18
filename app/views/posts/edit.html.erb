@@ -1,0 +1,18 @@
+<h1>EDIT</h1>
+<%= form_for @post do |form| %>
+	<p>
+		<%= form.label :title %>
+		<%= form.text_field :title %>
+	</p>
+	<p>
+		<%= form.label :comment %>
+		<%= form.text_field :comment %>
+	</p>
+	<p>
+		<%= form.label :count %>
+		<%= form.text_field :count %>
+	</p>
+	<p>
+		<%= form.submit %>
+	</p>
+	<% end %>

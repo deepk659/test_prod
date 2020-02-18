@@ -1,0 +1,71 @@
+Enter Title Name : <%= form_tag(posts_path, method: :get) do %>
+<%= text_field_tag(:search, params[:title]) %><br><br>
+<%= submit_tag ("Search") %><br><br>
+<% end %>
+<table id="test">
+	<thead>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style align = "center">
+table, th, td {
+  border: 1px solid black;
+  font-size: 18px;
+} 
+</style>
+  <tr>
+    
+    <th>
+    <input type="checkbox" id="qw" name="" value="" >
+    </th>
+    <th>Sno</th>
+    <th>Title</th>
+    <th>Comment</th>
+    <th>Count</th> 
+  </tr>
+  <% h = 1 %>
+  <% @posts.each do |t|  %>
+  <%# @posts.each_with_index  do |t, index| %>
+  <tr>
+    <td>
+    <input type="checkbox" name="" value="" >
+    </td>
+    <td><%= h %></td>
+    <td><%= t.title %></td>
+    <td><%= t.comment %></td>
+    <td><%= t.count %></td>
+    <td><%= link_to 'Edit',edit_post_path(t.id) %></td>
+    <td><%= link_to 'Delete',post_path(t.id), method: :delete %></td>
+    <td><%= link_to 'Show',post_path(t.id) %></td>
+    <% h +=1 %>
+  </tr>
+
+   <% end%>
+   
+  </thead>
+</table>
+<%= link_to 'NEW POST',new_post_path %>
+<%= will_paginate @posts %><br> 
+<!-- <input type="button" id="as" name="checkall" value="CHECK ALL">
+<input type="button" id="asd" name="uncheckall" value="UNCHECK ALL"><br><br> -->
+<%= link_to 'CLICK HERE',post_testajax_path(1), :remote => true%>
+<script type="text/javascript">
+  $(document).ready(function(){
+    // $("#as").click(function() {
+    //   $('input:checkbox').attr('checked','checked');
+    // })
+
+    // $("#asd").click(function() {
+    //   $('input:checkbox').removeAttr('checked');
+    // })
+    
+    $("#qw").click(function()  { 
+      if($(this).is(':checked')) 
+      {
+        $('input:checkbox').attr('checked','checked');
+      }
+      else{
+      $('input:checkbox').removeAttr('checked');
+      }
+    })
+    
+})
+</script>
