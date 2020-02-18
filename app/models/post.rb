@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+	has_many :likes
 	def self.search(search)
 		if search
 			post = Post.find_by(name: title)

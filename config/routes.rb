@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	resources :posts do
     get "testajax"
+    resources :likes
   end
 	
 	root 'posts#index'
