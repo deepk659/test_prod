@@ -12,6 +12,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
   end
+  def view
+    @post = Post.find(params[:id])
+  end
   def new
     @post = Post.new
   end
@@ -39,7 +42,7 @@ class PostsController < ApplicationController
     if @post.update_attributes(post_params)
       redirect_to posts_path
     else
-      reder :edit
+      render :edit
     end
   end
   def testajax

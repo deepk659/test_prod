@@ -35,7 +35,7 @@ table, th, td {
     <td><%= link_to 'Edit',edit_post_path(t.id) %></td>
     <td><%= link_to 'Delete',post_path(t.id), method: :delete %></td>
     <td><%= link_to 'Show',post_path(t.id) %></td>
-    <td><%= link_to 'Add Like',new_post_like_path(t.id) %></td>
+    <td><%= link_to 'Add Like',new_post_like_path(post_id: t.id) %></td>
     <td><%= link_to 'View Likes List',post_likes_path(t.id) %></td>
     <% h +=1 %>
   </tr>
@@ -48,7 +48,7 @@ table, th, td {
 <%= will_paginate @posts %><br> 
 <!-- <input type="button" id="as" name="checkall" value="CHECK ALL">
 <input type="button" id="asd" name="uncheckall" value="UNCHECK ALL"><br><br> -->
-<%= link_to 'CLICK HERE',post_testajax_path(1), :remote => true%>
+<%#= link_to 'CLICK HERE',post_testajax_path(1), :remote => true%>
 <script type="text/javascript">
   $(document).ready(function(){
     // $("#as").click(function() {

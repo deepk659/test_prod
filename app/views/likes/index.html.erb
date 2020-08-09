@@ -10,7 +10,8 @@ table, th, td {
   <th>Description</th>
 </tr>
  <% @likes.each do |t|  %>
- <tr><td><%= t.description %></td></tr>
+ <tr><td><%= t.description %></td>
+ <td><%= link_to 'VIEW DETAILS', "/posts/#{t.post.id}/view"%></td></tr>
  <% end %>
   </thead>
 </table>
